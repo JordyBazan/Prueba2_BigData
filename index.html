@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Pago</title>
+    <title>Galería de Fotos</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +13,7 @@
         }
         .container {
             width: 100%;
-            max-width: 600px;
+            max-width: 1000px;
             margin: 50px auto;
             padding: 20px;
             background-color: white;
@@ -23,38 +23,39 @@
         h1 {
             text-align: center;
             color: #007bff;
+            margin-bottom: 30px;
         }
-        .form-group {
-            margin-bottom: 15px;
+        .upload-section {
+            text-align: center;
+            margin-bottom: 20px;
         }
-        label {
-            font-size: 1.1em;
-            color: #333;
-        }
-        input[type="text"], input[type="email"], input[type="number"], input[type="submit"] {
-            width: 100%;
+        .upload-section input[type="file"] {
             padding: 10px;
-            margin: 5px 0 15px;
+            font-size: 1em;
+            color: #007bff;
+            background-color: #f9f9f9;
             border: 2px solid #ddd;
             border-radius: 5px;
-            font-size: 1em;
-        }
-        input[type="text"], input[type="email"], input[type="number"] {
-            background-color: #f9f9f9;
-        }
-        input[type="submit"] {
-            background-color: #007bff;
-            color: white;
-            border: none;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: border-color 0.3s;
         }
-        input[type="submit"]:hover {
-            background-color: #0056b3;
+        .upload-section input[type="file"]:hover {
+            border-color: #007bff;
         }
-        .highlight {
-            color: #007bff;
-            font-weight: bold;
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
         }
         .footer {
             text-align: center;
@@ -66,27 +67,41 @@
 </head>
 <body>
     <div class="container">
-        <h1>Formulario de Pago</h1>
-        <form action="/procesar-pago" method="POST">
-            <div class="form-group">
-                <label for="nombre">Nombre Completo</label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Escribe tu nombre">
-            </div>
-            <div class="form-group">
-                <label for="email">Correo Electrónico</label>
-                <input type="email" id="email" name="email" required placeholder="ejemplo@correo.com">
-            </div>
-            <div class="form-group">
-                <label for="monto">Monto a Pagar (USD)</label>
-                <input type="number" id="monto" name="monto" required placeholder="Ingrese el monto" min="1">
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Pagar Ahora">
-            </div>
-        </form>
+        <h1>Galería de Fotos</h1>
+
+        <!-- Sección para cargar fotos -->
+        <div class="upload-section">
+            <input type="file" accept="image/*" multiple onchange="loadImages(event)">
+        </div>
+
+        <!-- Galería de imágenes cargadas -->
+        <div class="gallery" id="gallery">
+            <!-- Las imágenes se cargarán aquí dinámicamente -->
+        </div>
+        
         <div class="footer">
-            <p>Pago seguro y protegido</p>
+            <p>Sube tus fotos y crea tu propia galería</p>
         </div>
     </div>
+
+    <script>
+        function loadImages(event) {
+            const gallery = document.getElementById("gallery");
+            const files = event.target.files;
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const imgElement = document.createElement("img");
+                    imgElement.src = e.target.result;
+                    gallery.appendChild(imgElement);
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </body>
 </html>
