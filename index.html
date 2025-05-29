@@ -1,107 +1,127 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Fotos</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f7fc;
-        }
-        .container {
-            width: 100%;
-            max-width: 1000px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            text-align: center;
-            color: #007bff;
-            margin-bottom: 30px;
-        }
-        .upload-section {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .upload-section input[type="file"] {
-            padding: 10px;
-            font-size: 1em;
-            color: #007bff;
-            background-color: #f9f9f9;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: border-color 0.3s;
-        }
-        .upload-section input[type="file"]:hover {
-            border-color: #007bff;
-        }
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-        }
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 0.9em;
-            color: #888;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Galería de Fotos</h1>
-
-        <!-- Sección para cargar fotos -->
-        <div class="upload-section">
-            <input type="file" accept="image/*" multiple onchange="loadImages(event)">
-        </div>
-
-        <!-- Galería de imágenes cargadas -->
-        <div class="gallery" id="gallery">
-            <!-- Las imágenes se cargarán aquí dinámicamente -->
-        </div>
-        
-        <div class="footer">
-            <p>Sube tus fotos y crea tu propia galería</p>
-        </div>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prueba2_BigData</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  </head>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <script>
-        function loadImages(event) {
-            const gallery = document.getElementById("gallery");
-            const files = event.target.files;
 
-            for (let i = 0; i < files.length; i++) {
-                const file = files[i];
-                const reader = new FileReader();
 
-                reader.onload = function(e) {
-                    const imgElement = document.createElement("img");
-                    imgElement.src = e.target.result;
-                    gallery.appendChild(imgElement);
-                }
 
-                reader.readAsDataURL(file);
-            }
-        }
-    </script>
-</body>
+
+  <body>
+    <img src="img/Logo_DuocUC.svg.png" alt="Logo de la página" width="300" class="Logo_DuocUC" style="width: 1000px; display: block; margin: auto;">
+
+    <h1 style="text-align: center;">
+        En esta pagina se mostraran las imagenes de evidencia de la evaluacion 2 de Big_Data
+    </h1>
+    <h1 style="text-align: center;">
+        Integrantes:
+    </h1>
+    <h1 style="text-align: center;">
+        Jordy Bazan
+    </h1>
+    <h1 style="text-align: center;">
+        Benjamin Zuñiga
+    </h1>
+
+    <h1 style="text-align: center;">
+        A continuacion los 3 mapas solicitados:
+    </h1>
+    <br>
+    <br>
+    <br>
+    <h3 style="text-align: center;">
+        En el siguiente Grafico de Torta, se pueden visualizar la cantidad de avistamientos de los 5 formas de objetos mas vistas
+    </h3>
+    <img src="img/Mapa_Torta.jpeg" alt="Logo de la página" width="300" class="Logo_DuocUC" style="width: 1000px; display: block; margin: auto;">
+    <br>
+    <br>
+    <br>
+    <h3 style="text-align: center;">
+        En el siguiente Grafico de Barras, se pueden ver la cantidad de avistamienos por año
+    </h3>
+    <img src="img/Grafico_Barras.jpeg" alt="Logo de la página" width="300" class="Logo_DuocUC" style="width: 1000px; display: block; margin: auto;">
+    <br>
+    <br>
+    <br>
+    <h3 style="text-align: center;">
+        En el siguiente Grafico Global, se pueden ver la cantidad de avistamienos por estados dentro de Estados Unidos
+    </h3>
+    <img src="img/Mapa_Mundo.png" alt="Logo de la página" width="300" class="Logo_DuocUC" style="width: 1000px; display: block; margin: auto;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h3 style="text-align: center;">
+        A continuacion se mostrarán los pasos que realizamos del laboratorio GSP 823 de Google Cloud:
+    </h3>
+  </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js" integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>
 </html>
